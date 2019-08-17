@@ -1,0 +1,20 @@
+{
+  "name": "typerapp-minimum-sample",
+  "version": "1.0.0",
+  "description": "minimum sample for typerapp",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typerapp": "0.1.0-beta.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.5.3"
+  }
+}
