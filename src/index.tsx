@@ -1,4 +1,4 @@
-import { h, app, Action, Lazy, Dispatch, ActionParamOf } from "typerapp";
+import { h, app, Action, Lazy, Dispatch } from "typerapp";
 import { Helmet } from "typerapp/helmet";
 import { style } from "typerapp/style";
 import { timer, httpText, delay } from "typerapp/fx";
@@ -42,12 +42,12 @@ const Input: Action<State, string> = (state, value) => ({
 });
 
 // Action called from httpText effect
-const OnTextResponse: Action<State, ActionParamOf<typeof httpText>> = (
+const OnTextResponse: Action<State, string> = (
   state,
-  params
+  text
 ) => ({
   ...state,
-  text: params.text
+  text: text
 });
 
 // Helmet redering function
@@ -135,7 +135,7 @@ const router = createRouter<State, RouteProps>({
         <div>
           <h2>Fetch</h2>
           <button
-            onClick={ev => dispatch([state, httpText(OnTextResponse, "/")])}
+            onClick={ev => dispatch([state, httpText([OnTextResponse, res => res.text], "/")])}
           >
             http requst
           </button>
@@ -222,7 +222,7 @@ app<State>({
     <div>
       <Lazy
         key="head"
-        render={renderHead}
+        view={renderHead}
         title={
           state.routing
             ? state.routing.route.title(state, state.routing.params)
@@ -270,5 +270,5 @@ app<State>({
     router,
     state.auto && timer(Increment, { interval: 500 })
   ],
-  container: document.body
+  node: document.body
 });

@@ -8,10 +8,11 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "typerapp": "0.0.1"
+    "typerapp": "0.1.0-beta.0"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.6.1"
+    "parcel-bundler": "^1.6.1",
+    "typescript": "^3.5.3"
   },
   "keywords": []
 }
