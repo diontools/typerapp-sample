@@ -15,18 +15,18 @@ const Increment: Action<State> = state => ({
 });
 
 // Action with parameter
-const Add: Action<State, { amount: number }> = (state, params) => ({
+const Add: Action<State, { amount: number }> = (state, payload) => ({
   ...state,
-  value: state.value + params.amount
+  value: state.value + payload.amount
 });
 
 // Action returns delay effect
 const DelayAdd: Action<State, { duration: number; amount: number }> = (
   state,
-  params
+  payload
 ) => [
   state,
-  delay([Add, { amount: params.amount }], { duration: params.duration })
+  delay([Add, { amount: payload.amount }], { duration: payload.duration })
 ];
 
 // Action for toggle auto state
