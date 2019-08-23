@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "typerapp": "0.1.0-beta.0"
+    "typerapp": "0.1.0-beta.3"
   },
   "devDependencies": {
     "parcel-bundler": "^1.6.1",
